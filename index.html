@@ -4,7 +4,7 @@ itmo370702
     window.addEventListener('load', function () {
         navigator
             .serviceWorker
-            .register('/request-interceptor.js')
+            .register('./request-interceptor.js')
             .then(function (registration) {
                 console.log('Service worker registered with scope: ', registration.scope);
             }, function (err) {
