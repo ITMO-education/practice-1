@@ -1,11 +1,14 @@
 itmo370702
 
 <script>
-    self.addEventListener('fetch', function (event) {
-        event.respondWith(async function () {
-            let headers = new Headers()
-            headers.append("X-Author", "itmo370702")
-            return fetch(event.request, {headers: headers})
-        }());
+    window.addEventListener('load', function () {
+        navigator
+            .serviceWorker
+            .register('/request-interceptor.js')
+            .then(function (registration) {
+                console.log('Service worker registered with scope: ', registration.scope);
+            }, function (err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
     });
 </script>
